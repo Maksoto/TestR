@@ -75,6 +75,7 @@
 <body>
   <header class="header">
     <h1>The Cafe</h1>
+    <a href="admin.php">Admin Login</a>
     <div class="language-selector">
         <select id="language" onchange="changeLanguage(this.value)">
           <option value="en">English</option>
@@ -191,9 +192,19 @@
         <div class="video-container">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/nY-4bxMl-4k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
+        <div class="cafe-info">
+          <h2>About the cafe</h2>
+          <p>We are a cozy cafe located in the heart of the city. Come and enjoy our delicious coffee and pastries!</p>
+          <h3>Opening hours:</h3>
+          <p>Monday - Friday: 8am - 6pm<br>
+             Saturday - Sunday: 9am - 4pm</p>
+          <h3>Address:</h3>
+          <p>123 Main St, City, State ZIP</p>
+        </div>
+
         <section id="contact">
-          <h1 class="title">Get in Touch</h1>
           <form action="send_email.php" method="post">
+          <h1 class="title">Get in Touch</h1>
             <div class="form-group">
               <label class="label" for="name">Your Name:</label>
               <input class="input" type="text" id="name" name="name">
@@ -217,7 +228,7 @@
         </section>
         
 <footer>
-  <p>&copy; 2023 Cafe Name. All rights reserved.</p>
+  <p>&copy; 2023 Maksoto Case. All rights reserved. </p>
 </footer>
 </body>
 </html>
@@ -500,5 +511,49 @@ height: auto;
 
 .buy-button:hover {
   background-color: #C74C3C;
+}
+.cafe-info {
+background-color: #F7F9FA;
+padding: 20px;
+margin-bottom: 50px;
+border-radius: 50px;
+max-width: 400px;
+}
+
+.section-header {
+margin-bottom: 20px;
+}
+
+.section-header h2 {
+font-size: 24px;
+font-weight: bold;
+margin: 0;
+padding: 0;
+}
+
+.section-content {
+font-size: 16px;
+line-height: 1.5;
+}
+
+.opening-hours,
+.address {
+margin-bottom: 20px;
+}
+
+.opening-hours h3,
+.address h3 {
+font-size: 18px;
+font-weight: bold;
+margin: 0;
+padding: 0;
+margin-bottom: 10px;
+}
+
+.opening-hours p,
+.address p {
+margin: 0;
+padding: 0;
+line-height: 1.5;
 }
 </style>

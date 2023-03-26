@@ -2,25 +2,36 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require "PHPMailer/src/PHPMailer.php";
-require "PHPMailer/src/Exception.php";
+require 'PHPMailer-master\PHPMailer-master\src\Exception.php';
+require 'PHPMailer-master\PHPMailer-master\src\PHPMailer.php';
+require 'PHPMailer-master\PHPMailer-master\src\SMTP.php';
 
-$mail = new PHPMailer(true);
-$mail->CharSet = "UTF-8";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $mail = new PHPMailer(true);
 
-// Get the form data
-$name = $_POST['name'];
-$email = $_POST['email'];
-$subject = $_POST['subject'];
-$message = $_POST['message'];
+  try {
+    //Server settings
+    $mail->isSMTP();                                            
+    $mail->Host       = 'smtp.gmail.com';                     
+    $mail->SMTPAuth   = true;                                   
+    $mail->Username   = 'maxsostar888@gmail.com';                     
+    $mail->Password   = 'Maksotoscpsl1fff';                             
+    $mail->SMTPSecure = 'tls';         
+    $mail->Port       = 587;                                    
 
-$body = $name . ' ' . $email . ' ' . $subject . ' ' . $message;
-$theme = "[Заявка с кафе]";
+    //Recipients
+    $mail->setFrom($_POST["email"], $_POST["name"]);
+    $mail->addAddress('maxsostar888@gmail.com');
 
-$mail->addAddres("maxsostar888@gmail.com");
+    // Content
+    $mail->isHTML(false);                                  
+    $mail->Subject = $_POST["subject"];
+    $mail->Body    = $_POST["message"];
 
-$mail->Subject = $theme;
-$mail->Body = $body;
-
-$mail->send();
+    $mail->send();
+    echo "Your message has been sent.";
+  } catch (Exception $e) {
+    echo "There was a problem sending your message. Error: {$mail->ErrorInfo}";
+  }
+}
 ?>
