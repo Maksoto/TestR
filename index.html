@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Cafe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-image: url('https://images.unsplash.com/photo-1521747116042-5a810fda9664');
+      background-size: cover;
+      height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px #000000;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .menu {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .menu-item {
+      background-color: #ffffff;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px #cccccc;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .menu-item h2 {
+      margin-top: 0;
+    }
+
+    .menu-item p {
+      margin-bottom: 0;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #333333;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .button:hover {
+      background-color: #666666;
+    }
+
+  </style>
+  <script src="language.js"></script>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1>The Cafe</h1>
+    <div class="language-selector">
+        <select id="language" onchange="changeLanguage(this.value)">
+          <option value="en">English</option>
+          <option value="ru">Russian</option>
+        </select>
+      </div>
+  </header>
+  <div class="menu">
+    <div class="menu-item">
+      <h2>Espresso</h2>
+      <p>A shot of strong dark coffee.</p>
+      <p>Price: $3.50</p>
+      <button class="button" onclick="openEspressoWindow()">Order now</button>
+    </div>
+    
+    <div class="espresso-window" style="display:none;">
+      <div class="espresso-content">
+        <span class="close-button" onclick="closeEspressoWindow()">&times;</span>
+        <img src="espresso.png" alt="espresso">
+        <h2>Espresso</h2>
+        <p>A shot of strong dark coffee.</p>
+        <p>Price: $3.50</p>
+        <button class="buy-button">Buy now</button>
+      </div>
+    </div>
+    
+    <script>
+    function openEspressoWindow() {
+      const espressoWindow = document.querySelector('.espresso-window');
+      if (espressoWindow) {
+        espressoWindow.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // prevent scrolling
+      }
+    }
+    
+    function closeEspressoWindow() {
+      const espressoWindow = document.querySelector('.espresso-window');
+      if (espressoWindow) {
+        espressoWindow.style.display = 'none';
+        document.body.style.overflow = 'auto'; // enable scrolling
+      }
+    }
+    </script>
+    
+    <div class="menu-item">
+      <h2>Cappuccino</h2>
+      <p>A shot of espresso with steamed milk and foam.</p>
+      <p>Price: $4.50</p>
+      <button class="button" onclick="openCappuccinoWindow()">Order now</button>
+    </div>
+    
+    <div class="cappuccino-window" style="display:none;">
+      <div class="cappuccino-content">
+        <span class="close-button" onclick="closeCappuccinoWindow()">&times;</span>
+        <img src="cappuccino.png" alt="Cappuccino">
+        <h2>Cappuccino</h2>
+        <p>A shot of espresso with steamed milk and foam.</p>
+        <p>Price: $4.50</p>
+        <button class="buy-button">Buy now</button>
+      </div>
+    </div>
+    
+    <script>
+    function openCappuccinoWindow() {
+      const cappuccinoWindow = document.querySelector('.cappuccino-window');
+      if (cappuccinoWindow) {
+        cappuccinoWindow.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // prevent scrolling
+      }
+    }
+    
+    function closeCappuccinoWindow() {
+      const cappuccinoWindow = document.querySelector('.cappuccino-window');
+      if (cappuccinoWindow) {
+        cappuccinoWindow.style.display = 'none';
+        document.body.style.overflow = 'auto'; // enable scrolling
+      }
+    }
+    </script>
+
+
+    <div class="menu-item">
+      <h2>Latte</h2>
+      <p>A shot of espresso with steamed milk.</p>
+      <p>Price: $4.00</p>
+      <a href="#" class="button">Order now</a>
+    </div>
+    <div class="menu-item">
+      <h2>Mocha</h2>
+      <p>A shot of espresso with steamed milk and chocolate.</p>
+      <p>Price: $5.00</p>
+      <a href="#" class="button">Order now</a>
+    </div>
+    <div class="menu-item">
+      <h2>Tea</h2>
+      <p>A selection of hot teas.</p>
+      <p>Price: $3.00</p>
+      <a href="#" class="button">Order now</a>
+    </div>
+    <div class="menu-item">
+        <h2>Coffee</h2>
+        <p>A selection of hot coffee.</p>
+        <p>Price: $4.00</p>
+        <a href="#" class="button">Order now</a>
+      </div>
+      
+      <div class="menu-item">
+        <h2>Iced Coffee</h2>
+        <p>A selection of iced coffee.</p>
+        <p>Price: $4.50</p>
+        <a href="#" class="button">Order now</a>
+      </div>
+        </div>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/nY-4bxMl-4k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <section id="contact">
+          <h1 class="title">Get in Touch</h1>
+          <form action="send_email.php" method="post">
+            <div class="form-group">
+              <label class="label" for="name">Your Name:</label>
+              <input class="input" type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+              <label class="label" for="email">Email Address:</label>
+              <input class="input" type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label class="label" for="subject">Subject:</label>
+              <input class="input" type="text" id="subject" name="subject">
+            </div>
+            <div class="form-group">
+              <label class="label" for="message">Your Message:</label>
+              <textarea class="textarea" id="message" name="message"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="button is-primary" type="submit">Send</button>
+            </div>
+          </form>
+        </section>
+        
+<footer>
+  <p>&copy; 2023 Cafe Name. All rights reserved.</p>
+</footer>
+</body>
+</html>
+<style>
+body {
+  background-color: #fff8e7;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #e85a4f;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+nav a {
+  color: #fff;
+  font-weight: bold;
+  margin-right: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background-image: url('cafe-image.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 64px;
+  text-align: center;
+  text-shadow: 2px 2px #000;
+}
+
+section {
+  margin: 50px 0;
+  padding: 0 20px;
+}
+
+section h1 {
+  color: #e85a4f;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px #ccc;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+}
+
+.menu-item h2 {
+  color: #e85a4f;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.menu-item p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#contact {
+    background-color: #F7F9FA;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 800px;
+  }
+
+  .title {
+    color: #2D3748;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .label {
+    color: #2D3748;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .input,
+  .textarea {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .input:focus,
+  .textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .textarea {
+    height: 150px;
+    resize: vertical;
+  }
+
+  .button {
+    background-color: #3D4852;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.2s ease;
+  }
+
+  .button:hover {
+    background-color: #2D3748;
+  }
+  .language-selector {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+}
+
+.language-selector select {
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #cccccc;
+  color: #333333;
+}
+
+.espresso-window {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.espresso-content {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fefefe;
+border-radius: 10px;
+padding: 20px;
+width: 80%;
+max-width: 800px;
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+text-align: center;
+}
+
+.espresso-content img {
+max-width: 100%;
+height: auto;
+}
+
+.close-button {
+position: absolute;
+top: 0;
+right: 0;
+color: #aaa;
+font-size: 30px;
+font-weight: bold;
+cursor: pointer;
+padding: 10px;
+}
+
+.close-button:hover {
+color: #000;
+}
+
+.cappuccino-window {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cappuccino-content {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: #fefefe;
+border-radius: 10px;
+padding: 20px;
+width: 80%;
+max-width: 800px;
+box-shadow: 0 0 20px rgba(0,0,0,0.5);
+text-align: center;
+}
+
+.cappuccino-content img {
+max-width: 100%;
+height: auto;
+}
+
+.buy-button {
+  display: inline-block;
+  background-color: #E27D60;
+  border-radius: 30px;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.buy-button:hover {
+  background-color: #C74C3C;
+}
+</style>
